@@ -18,6 +18,10 @@ if test ! $(which brew); then
   sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 fi
 
-# Removes .zshrc from ${HOME} (if it exists) and symlinks the .zshrc file from the .dotfiles
+# Removes .zshrc from ${HOME} (if it exists) and symlinks the .zshrc file
 rm -rf ${HOME}/.zshrc
 ln -s $(pwd)/.zshrc ${HOME}/.zshrc
+
+# Removes .gitignore_global from ${HOME} (if it exists) and symlinks the .gitignore_global file
+rm -rf ${HOME}/.gitignore_global
+ln -s $(pwd)/.gitignore_global ${HOME}/.gitignore_global
