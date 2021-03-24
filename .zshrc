@@ -117,4 +117,4 @@ if [ -f "${HOME}/.google-cloud-sdk/path.zsh.inc" ]; then . "${HOME}/.google-clou
 if [ -f "${HOME}/.google-cloud-sdk/completion.zsh.inc" ]; then . "${HOME}/.google-cloud-sdk/completion.zsh.inc"; fi
 
 # current project
-alias cdc='cd "${HOME}/Workspace/ab-inbev/infra-as-code"'
+alias cdc='cd "${HOME}/Workspace/ab-inbev/iac-microservices"'
