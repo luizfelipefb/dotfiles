@@ -4,6 +4,7 @@ tap "homebrew/core"
 
 brew "asdf"
 brew "git"
+brew "gnupg"
 brew "watch"
 
 cask "appcleaner"
