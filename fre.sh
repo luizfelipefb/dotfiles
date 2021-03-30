@@ -23,21 +23,9 @@ git clone https://github.com/luizfelipefb/dotfiles/ ${SAVE_PATH}
 # Install dependencies with bundle (See Brewfile)
 brew bundle --file=${SAVE_PATH}/Brewfile
 
-# Install ohmyz.sh
-if test ! $(which omz); then
-  sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-fi
-
-# Install spaceship theme
-git clone https://github.com/denysdovhan/spaceship-prompt.git "${ZSH_CUSTOM}/themes/spaceship-prompt"
-ln -s "${ZSH_CUSTOM}/themes/spaceship-prompt/spaceship.zsh-theme" "${ZSH_CUSTOM}/themes/spaceship.zsh-theme" 
-
 # Install powerline font
 git clone https://github.com/powerline/fonts.git /tmp/powerline
 /tmp/powerline/install.sh
-
-# Install zsh-autosuggestions
-git clone https://github.com/zsh-users/zsh-autosuggestions "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions"
 
 # Removes .zshrc from ${HOME} (if it exists) and symlinks the .zshrc file
 rm -rf ${HOME}/.zshrc
