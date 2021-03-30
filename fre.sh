@@ -29,12 +29,15 @@ if test ! $(which omz); then
 fi
 
 # Install spaceship theme
-git clone https://github.com/denysdovhan/spaceship-prompt.git "${ZSH_CUSTOM}/themes/spaceship-prompt" --depth=1
+git clone https://github.com/denysdovhan/spaceship-prompt.git "${ZSH_CUSTOM}/themes/spaceship-prompt"
 ln -s "${ZSH_CUSTOM}/themes/spaceship-prompt/spaceship.zsh-theme" "${ZSH_CUSTOM}/themes/spaceship.zsh-theme" 
 
 # Install powerline font
 git clone https://github.com/powerline/fonts.git /tmp/powerline
 /tmp/powerline/install.sh
+
+# Install zsh-autosuggestions
+git clone https://github.com/zsh-users/zsh-autosuggestions "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions"
 
 # Removes .zshrc from ${HOME} (if it exists) and symlinks the .zshrc file
 rm -rf ${HOME}/.zshrc
@@ -43,3 +46,7 @@ ln -s "${SAVE_PATH}/.zshrc" "${HOME}/.zshrc"
 # Removes .gitignore_global from ${HOME} (if it exists) and symlinks the .gitignore_global file
 rm -rf ${HOME}/.gitignore_global
 ln -s "${SAVE_PATH}/.gitignore_global" "${HOME}/.gitignore_global"
+
+# Removes .alacritty.yml from ${HOME} (if it exists) and symlinks the .alacritty.yml file
+rm -rf ${HOME}/.alacritty.yml
+ln -s "${SAVE_PATH}/.alacritty.yml" "${HOME}/.alacritty.yml"

@@ -2,6 +2,7 @@ tap "homebrew/bundle"
 tap "homebrew/cask"
 tap "homebrew/core"
 
+cask "alacritty"
 brew "asdf"
 brew "git"
 brew "gnupg"
