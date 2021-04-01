@@ -1,6 +1,6 @@
-#!/bin/sh
+#!/bin/bash
 
-local SAVE_PATH=$(realpath ${0})
+SAVE_PATH=$(realpath ${1})
 
 # Ask for the administrator password upfront
 sudo -v
@@ -29,12 +29,17 @@ git clone https://github.com/powerline/fonts.git /tmp/powerline
 
 # Removes .zshrc from ${HOME} (if it exists) and symlinks the .zshrc file
 rm -rf ${HOME}/.zshrc
-ln -s "${SAVE_PATH}/.zshrc" "${HOME}/.zshrc"
+ln -s "${SAVE_PATH}/dots/.zshrc" "${HOME}/.zshrc"
 
 # Removes .gitignore_global from ${HOME} (if it exists) and symlinks the .gitignore_global file
 rm -rf ${HOME}/.gitignore_global
-ln -s "${SAVE_PATH}/.gitignore_global" "${HOME}/.gitignore_global"
+ln -s "${SAVE_PATH}/dots/.gitignore_global" "${HOME}/.gitignore_global"
 
 # Removes .alacritty.yml from ${HOME} (if it exists) and symlinks the .alacritty.yml file
 rm -rf ${HOME}/.alacritty.yml
-ln -s "${SAVE_PATH}/.alacritty.yml" "${HOME}/.alacritty.yml"
+ln -s "${SAVE_PATH}/dots/.alacritty.yml" "${HOME}/.alacritty.yml"
+
+# Removes settings.json from ${HOME}/.vscode (if it exists) and symlinks the settings.json file
+mkdir -p ${HOME}/.vscode
+rm -rf ${HOME}/.vscode/settings.json
+ln -s "${SAVE_PATH}/dots/settings.json" "${HOME}/.vscode/settings.json"

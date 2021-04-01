@@ -26,7 +26,7 @@ zplug load
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|=*' 'l:|=* r:|=*'
 
 # dir colors
-alias ls='gls --color=always'
+alias ls='gls --color=tty'
 alias l='ls -lah'
 
 # brew paths

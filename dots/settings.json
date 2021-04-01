@@ -1,0 +1,36 @@
+{
+  "files.exclude": {
+    "**/.git": false
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[vue]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "files.associations": {
+    "*.hcl": "terraform",
+    "*.tf": "terraform"
+  },
+  "docker.showStartPage": false,
+  "editor.fontSize": 11,
+  "editor.renderWhitespace": "all",
+  "editor.tabSize": 2,
+  "editor.wordWrap": "on",
+  "git.autofetch": true,
+  "git.enableSmartCommit": true,
+  "terminal.integrated.fontFamily": "Roboto Mono for Powerline",
+  "terminal.integrated.fontSize": 11,
+  "workbench.colorTheme": "One Dark Pro",
+  "workbench.iconTheme": "material-icon-theme",
+  "workbench.startupEditor": "none"
+}

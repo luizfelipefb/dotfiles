@@ -73,7 +73,7 @@ window:
   dynamic_title: true
 font:
   normal:
-    family: Go Mono for Powerline
+    family: Roboto Mono for Powerline
 key_bindings:
   - { key: Right, mods: Alt, chars: "\x1BF" }
   - { key: Left, mods: Alt, chars: "\x1BB" }
