@@ -40,6 +40,6 @@ rm -rf ${HOME}/.alacritty.yml
 ln -s "${SAVE_PATH}/dots/.alacritty.yml" "${HOME}/.alacritty.yml"
 
 # Removes settings.json from ${HOME}/.vscode (if it exists) and symlinks the settings.json file
-mkdir -p ${HOME}/.vscode
-rm -rf ${HOME}/.vscode/settings.json
-ln -s "${SAVE_PATH}/dots/settings.json" "${HOME}/.vscode/settings.json"
+mkdir -p "${HOME}/Library/Application Support/Code/User"
+rm -rf "${HOME}/Library/Application Support/Code/User/settings.json"
+ln -s "${SAVE_PATH}/dots/settings.json" "${HOME}/Library/Application Support/Code/User/settings.json"
