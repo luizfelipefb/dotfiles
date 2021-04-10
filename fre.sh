@@ -1,7 +1,5 @@
 #!/bin/bash
 
-SAVE_PATH=$(realpath ${1})
-
 # Ask for the administrator password upfront
 sudo -v
 
@@ -14,7 +12,10 @@ fi
 brew update
 
 # Git
-brew install git
+brew install git coreutils
+
+# get full path
+SAVE_PATH=$(realpath ${1})
 
 # clone dotfiles
 mkdir -p ${SAVE_PATH}
