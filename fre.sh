@@ -24,6 +24,9 @@ git clone https://github.com/luizfelipefb/dotfiles/ ${SAVE_PATH}
 # Install dependencies with bundle (See Brewfile)
 brew bundle --file=${SAVE_PATH}/Brewfile
 
+# Instal zplug
+curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh
+
 # Install powerline font
 git clone https://github.com/powerline/fonts.git /tmp/powerline
 /tmp/powerline/install.sh

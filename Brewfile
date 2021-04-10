@@ -7,7 +7,6 @@ brew "asdf"
 brew "git"
 brew "gnupg"
 brew "watch"
-brew "zplug"
 
 cask "appcleaner"
 cask "docker"
