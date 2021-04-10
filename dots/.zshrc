@@ -25,9 +25,15 @@ zplug load
 # szsh tyle
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|=*' 'l:|=* r:|=*'
 
+# spaceship config
+SPACESHIP_DIR_TRUNC=0
+SPACESHIP_DIR_TRUNC_REPO=false
+
 # dir colors
+alias grep='grep --color'
 alias ls='gls --color=tty'
 alias l='ls -lah'
+alias lff='ls -lah --group-directories-first'
 
 # brew paths
 export PATH="/usr/local/sbin:${PATH}"
@@ -37,4 +43,3 @@ source /usr/local/opt/asdf/asdf.sh
 
 # current project
 alias cdc='cd "${HOME}/Workspace/ab-inbev/iac-microservices"'
-
