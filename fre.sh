@@ -47,3 +47,6 @@ ln -s "${SAVE_PATH}/dots/.alacritty.yml" "${HOME}/.alacritty.yml"
 mkdir -p "${HOME}/Library/Application Support/Code/User"
 rm -rf "${HOME}/Library/Application Support/Code/User/settings.json"
 ln -s "${SAVE_PATH}/dots/settings.json" "${HOME}/Library/Application Support/Code/User/settings.json"
+
+# Update shell
+source ~/.zshrc
