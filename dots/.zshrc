@@ -29,6 +29,10 @@ zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|=*' 'l:|=* r:|=*'
 SPACESHIP_DIR_TRUNC=0
 SPACESHIP_DIR_TRUNC_REPO=false
 
+# search with arows up and down
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
+
 # dir colors
 alias grep='grep --color'
 alias ls='gls --color=tty'
@@ -40,6 +44,3 @@ export PATH="/usr/local/sbin:${PATH}"
 
 # asdf
 source /usr/local/opt/asdf/asdf.sh
-
-# current project
-alias cdc='cd "${HOME}/Workspace/ab-inbev/iac-microservices"'

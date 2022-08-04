@@ -1,26 +1,4 @@
 schemes:
-  material: &material
-    primary:
-      background: '#263238'
-      foreground: '#eeffff'
-    normal:
-      black:   '#000000'  # Arbitrary
-      red:     '#e53935'
-      green:   '#91b859'
-      yellow:  '#ffb62c'
-      blue:    '#6182b8'
-      magenta: '#ff5370'  # Dark pink of the original material theme
-      cyan:    '#39adb5'
-      white:   '#a0a0a0'  # Arbitrary
-    bright:
-      black:   '#4e4e4e'  # Arbitrary
-      red:     '#ff5370'
-      green:   '#c3e88d'
-      yellow:  '#ffcb6b'
-      blue:    '#82aaff'
-      magenta: '#f07178'  # Pink of the original material theme
-      cyan:    '#89ddff'
-      white:   '#ffffff'  # Arbitrary
   onedark: &onedark
     primary:
       background: '#282c34'
@@ -40,111 +18,20 @@ schemes:
       magenta:    '#c678dd'
       cyan:       '#56b6c2'
       white:      '#828997' # mono-2
-  tender: &tender
-    primary:
-      background: '#282828'
-      foreground: '#eeeeee'
-    normal:
-      black:   '#282828'
-      red:     '#f43753'
-      green:   '#c9d05c'
-      yellow:  '#ffc24b'
-      blue:    '#b3deef'
-      magenta: '#d3b987'
-      cyan:    '#73cef4'
-      white:   '#eeeeee'
-    bright:
-      black:   '#4c4c4c'
-      red:     '#f43753'
-      green:   '#c9d05c'
-      yellow:  '#ffc24b'
-      blue:    '#b3deef'
-      magenta: '#d3b987'
-      cyan:    '#73cef4'
-      white:   '#feffff'
-  dracula: &dracula
-    primary:
-      background: '#282a36'
-      foreground: '#f8f8f2'
-    normal:
-      black:   '#000000'
-      red:     '#ff5555'
-      green:   '#50fa7b'
-      yellow:  '#f1fa8c'
-      blue:    '#caa9fa'
-      magenta: '#ff79c6'
-      cyan:    '#8be9fd'
-      white:   '#bfbfbf'
-    bright:
-      black:   '#575b70'
-      red:     '#ff6e67'
-      green:   '#5af78e'
-      yellow:  '#f4f99d'
-      blue:    '#caa9fa'
-      magenta: '#ff92d0'
-      cyan:    '#9aedfe'
-      white:   '#e6e6e6'
-  nord: &nord
-    primary:
-      background: '#2e3440'
-      foreground: '#d8dee9'
-      dim_foreground: '#a5abb6'
-    cursor:
-      text: '#2e3440'
-      cursor: '#d8dee9'
-    vi_mode_cursor:
-      text: '#2e3440'
-      cursor: '#d8dee9'
-    selection:
-      text: CellForeground
-      background: '#4c566a'
-    search:
-      matches:
-        foreground: CellBackground
-        background: '#88c0d0'
-      bar:
-        background: '#434c5e'
-        foreground: '#d8dee9'
-    normal:
-      black: '#3b4252'
-      red: '#bf616a'
-      green: '#a3be8c'
-      yellow: '#ebcb8b'
-      blue: '#81a1c1'
-      magenta: '#b48ead'
-      cyan: '#88c0d0'
-      white: '#e5e9f0'
-    bright:
-      black: '#4c566a'
-      red: '#bf616a'
-      green: '#a3be8c'
-      yellow: '#ebcb8b'
-      blue: '#81a1c1'
-      magenta: '#b48ead'
-      cyan: '#8fbcbb'
-      white: '#eceff4'
-    dim:
-      black: '#373e4d'
-      red: '#94545d'
-      green: '#809575'
-      yellow: '#b29e75'
-      blue: '#68809a'
-      magenta: '#8c738c'
-      cyan: '#6d96a5'
-      white: '#aeb3bb'
 
 window:
   dimensions:
-   columns: 160
-   lines: 50
+    columns: 160
+    lines: 50
   padding:
-   x: 5
-   y: 5
+    x: 5
+    y: 5
   dynamic_title: true
 font:
   normal:
     family: Roboto Mono for Powerline
+  size: 12
 key_bindings:
   - { key: Right, mods: Alt, chars: "\x1BF" }
   - { key: Left, mods: Alt, chars: "\x1BB" }
-colors: *nord
+colors: *onedark
