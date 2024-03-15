@@ -1,0 +1,60 @@
+add_newline = true
+
+format = """
+$directory\
+$git_branch\
+$git_commit\
+$git_state\
+$git_metrics\
+$git_status\
+$nodejs\
+$python\
+$docker_context\
+$kubernetes\
+$fill\
+$cmd_duration\
+$time
+$character\
+"""
+
+[directory]
+style = "cyan"
+truncation_length = 0
+truncate_to_repo = false
+
+[git_branch]
+style = "purple"
+format = '[$symbol$branch(:$remote_branch)]($style) '
+
+[nodejs]
+style = "green"
+format = '[$symbol$version](green) '
+
+[python]
+style = "yellow"
+format = "[$symbol$version]($style) "
+
+[docker_context]
+style = "blue"
+format = '[$symbol$context]($style) '
+
+[kubernetes]
+style = "blue"
+symbol = " "
+format = '[$symbol$context]($style) '
+detect_files = ['.k8s']
+disabled = false
+
+[fill]
+style = "black"
+symbol = " "
+
+[time]
+style = "yellow"
+format = '[ $time]($style) '
+disabled = false
+
+[cmd_duration]
+style = "yellow"
+format = '[ $duration]($style) '
+min_time = 0
