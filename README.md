@@ -4,17 +4,25 @@ Set OS env variables for the applications config locations and run the following
 
 ```zsh
 # .alacritty
-ln -s "$HOME/.dotfiles/.alacritty.toml" $ALACRITTY_CONFIG
+ln -s $HOME/.dotfiles/alacritty/.alacritty.toml $HOME/.alacritty.toml
 
 # .gitignore
-git config --global core.excludesfile $HOME/.dotfiles/.gitignore
+git config --global core.excludesfile $HOME/git/.dotfiles/.gitignore
 
-# .zshrc
-ln -s "$HOME/.dotfiles/.zshrc" "$HOME/.zshrc"
-
-# vscode
-ln -s "$HOME/.dotfiles/settings.json" $VSCODE_CONFIG
+# k9s
+ln -s $HOME/.dotfiles/k9s/aliases.yaml $HOME/.config/k9s/aliases.yaml
+ln -s $HOME/.dotfiles/k9s/config.yaml $HOME/.config/k9s/config.yaml
+ln -s $HOME/.dotfiles/k9s/skin.yaml $HOME/.config/k9s/skin.yaml
 
 # starship
-ln -s "$HOME/.dotfiles/starship.toml" $HOME/.config/starship.toml
+ln -s $HOME/.dotfiles/starship/starship.toml $HOME/.config/starship.toml
+
+# vim
+ln -s $HOME/.dotfiles/vim/.vimrc $HOME/.vimrc
+
+# vscode
+ln -s $HOME/.dotfiles/vscode/settings.json $HOME/.config/Code/User/settings.json
+
+# .zshrc
+ln -s $HOME/.dotfiles/zsh/.zshrc $HOME/.zshrc
 ```
