@@ -10,9 +10,9 @@ ln -s $HOME/.dotfiles/alacritty/.alacritty.toml $HOME/.alacritty.toml
 git config --global core.excludesfile $HOME/git/.dotfiles/.gitignore
 
 # k9s
+. $HOME/.dotfiles/k9s/get-catppuccin-theme.sh
 ln -s $HOME/.dotfiles/k9s/aliases.yaml $HOME/.config/k9s/aliases.yaml
 ln -s $HOME/.dotfiles/k9s/config.yaml $HOME/.config/k9s/config.yaml
-ln -s $HOME/.dotfiles/k9s/skin.yaml $HOME/.config/k9s/skin.yaml
 
 # starship
 ln -s $HOME/.dotfiles/starship/starship.toml $HOME/.config/starship.toml

@@ -61,15 +61,13 @@ if [ -f /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]; then
   ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=#999'
 fi
 
-# some more ls aliases
-alias ll='ls -l'
-alias la='ls -A'
-alias l='ls -lah'
-alias ls='ls --color=auto'
-alias lff='ls -lah --group-directories-first'
-alias grep='grep --color=auto'
+# some aliases
+alias cat='bat -P'
 alias diff='diff --color=auto'
+alias grep='grep --color=auto'
 alias ip='ip --color=auto'
+alias l='ls -lahg'
+alias ls='exa --icons --group-directories-first'
 
 # zplug
 export ZPLUG_HOME=${HOME}/.zplug
@@ -100,6 +98,9 @@ zplug load
 fpath=(${ASDF_DIR}/completions $fpath)
 autoload -Uz compinit && compinit
 
+# Set up fzf key bindings and fuzzy completion
+source <(fzf --zsh)
+
 # append all .kube config fikes
 export KUBE_EDITOR='code --wait'
 export KUBECONFIG=$(find ${HOME}/.kube -maxdepth 1 -type f | sort | sed ':a;N;s/\n/:/;ba')
@@ -108,7 +109,14 @@ export KUBECONFIG=$(find ${HOME}/.kube -maxdepth 1 -type f | sort | sed ':a;N;s/
 export PATH="$PATH:$HOME/.local/bin"
 
 # npm-groovy-lint format
-alias ngf='npm-groovy-lint -r "Indentation{\"spacesPerIndentLevel\":2,\"severity\":\"error\"},UnnecessarySemicolon,UnnecessaryGString" --fix'
+alias ngf='npm-groovy-lint -r "Indentation{\"spacesPerIndentLevel\":4,\"severity\":\"error\"},UnnecessarySemicolon,UnnecessaryGString" --fix'
 
 # startship promt
 eval "$(starship init zsh)"
+
+# change eks
+alias kjar="kubectl config use-context 'arn:aws:eks:us-east-1:030669393364:cluster/jarvis'"
+alias kdev="kubectl config use-context 'arn:aws:eks:us-east-1:030669393364:cluster/develop'"
+alias kpre="kubectl config use-context 'arn:aws:eks:us-east-1:030669393364:cluster/preprod'"
+alias kprd="kubectl config use-context 'arn:aws:eks:us-east-1:030669393364:cluster/production'"
+
