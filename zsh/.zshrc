@@ -94,8 +94,8 @@ fi
 zplug load
 
 # asdf
-. "$HOME/.asdf/asdf.sh"
-fpath=(${ASDF_DIR}/completions $fpath)
+export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
+fpath=(${ASDF_DATA_DIR:-$HOME/.asdf}/completions $fpath)
 autoload -Uz compinit && compinit
 
 # Set up fzf key bindings and fuzzy completion
@@ -119,4 +119,3 @@ alias kjar="kubectl config use-context 'arn:aws:eks:us-east-1:030669393364:clust
 alias kdev="kubectl config use-context 'arn:aws:eks:us-east-1:030669393364:cluster/develop'"
 alias kpre="kubectl config use-context 'arn:aws:eks:us-east-1:030669393364:cluster/preprod'"
 alias kprd="kubectl config use-context 'arn:aws:eks:us-east-1:030669393364:cluster/production'"
-
