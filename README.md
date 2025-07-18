@@ -6,8 +6,10 @@ Set OS env variables for the applications config locations and run the following
 # .alacritty
 ln -s $HOME/.dotfiles/alacritty/.alacritty.toml $HOME/.alacritty.toml
 
-# .gitignore
-git config --global core.excludesfile $HOME/git/.dotfiles/.gitignore
+# git config
+git config --global pull.ff only
+git config --global core.excludesfile $HOME/.dotfiles/git/.gitignore
+git config --global core.editor "nano"
 
 # k9s
 . $HOME/.dotfiles/k9s/get-catppuccin-theme.sh
