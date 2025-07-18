@@ -68,6 +68,7 @@ alias grep='grep --color=auto'
 alias ip='ip --color=auto'
 alias l='ls -lahg'
 alias ls='exa --icons --group-directories-first'
+alias dps="docker ps --format 'table {{.Names}}\t{{.Status}}\t{{.Image}}\t{{.Ports}}'"
 
 # zplug
 export ZPLUG_HOME=${HOME}/.zplug
@@ -93,26 +94,28 @@ fi
 
 zplug load
 
+# local bins
+export PATH="$PATH:/home/luizfelipefb/.local/bin"
+
 # asdf
 export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
 fpath=(${ASDF_DATA_DIR:-$HOME/.asdf}/completions $fpath)
 autoload -Uz compinit && compinit
 
-# Set up fzf key bindings and fuzzy completion
+# set up fzf key bindings and fuzzy completion
 source <(fzf --zsh)
-
-# append all .kube config fikes
-export KUBE_EDITOR='code --wait'
-export KUBECONFIG=$(find ${HOME}/.kube -maxdepth 1 -type f | sort | sed ':a;N;s/\n/:/;ba')
-
-# Created by `pipx` on 2024-01-04 03:03:28
-export PATH="$PATH:$HOME/.local/bin"
-
-# npm-groovy-lint format
-alias ngf='npm-groovy-lint -r "Indentation{\"spacesPerIndentLevel\":4,\"severity\":\"error\"},UnnecessarySemicolon,UnnecessaryGString" --fix'
 
 # startship promt
 eval "$(starship init zsh)"
+
+### work related configurations
+
+# append all .kube config files
+export KUBE_EDITOR='code --wait'
+export KUBECONFIG=$(find ${HOME}/.kube -maxdepth 1 -type f | sort | sed ':a;N;s/\n/:/;ba')
+
+# npm-groovy-lint format
+alias ngf='npm-groovy-lint -r "Indentation{\"spacesPerIndentLevel\":4,\"severity\":\"error\"},UnnecessarySemicolon,UnnecessaryGString" --fix'
 
 # change eks
 alias kjar="kubectl config use-context 'arn:aws:eks:us-east-1:030669393364:cluster/jarvis'"
