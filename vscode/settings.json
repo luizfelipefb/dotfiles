@@ -1,34 +1,11 @@
 {
-  "files.exclude": {
-    "**/.git": false
+  "[dockerfile]": {
+    "editor.defaultFormatter": "ms-azuretools.vscode-docker"
   },
-
-  "terminal.integrated.profiles.windows": {
-    "PowerShell": {
-      "source": "PowerShell",
-      "icon": "terminal-powershell"
-    },
-    "Command Prompt": {
-      "path": [
-        "${env:windir}\\Sysnative\\cmd.exe",
-        "${env:windir}\\System32\\cmd.exe"
-      ],
-      "args": [],
-      "icon": "terminal-cmd"
-    },
-    "Git Bash": {
-      "source": "Git Bash"
-    },
-    "Debian (WSL)": {
-      "path": "C:\\Windows\\System32\\wsl.exe",
-      "args": ["-d", "debian"]
-    }
-  },
-
-  "[typescript]": {
+  "[html]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "[yaml]": {
+  "[javascript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[json]": {
@@ -37,51 +14,75 @@
   "[jsonc]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "[javascript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[html]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[dockerfile]": {
-    "editor.defaultFormatter": "ms-azuretools.vscode-docker"
+  "[markdown]": {
+    "editor.defaultFormatter": "DavidAnson.vscode-markdownlint"
   },
   "[shellscript]": {
     "editor.defaultFormatter": "foxundermoon.shell-format"
   },
-
-  "git.autofetch": true,
-  "git.enableSmartCommit": true,
-
-  "workbench.startupEditor": "none",
-  "workbench.colorTheme": "One Dark Pro",
-  "workbench.iconTheme": "material-icon-theme",
-
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[yaml]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "editor.fontFamily": "Cousine Nerd Font Mono",
+  "editor.fontSize": 14,
+  "editor.lineHeight": 1.5,
+  "editor.renderWhitespace": "all",
+  "editor.tabSize": 2,
+  "explorer.compactFolders": false,
+  "explorer.confirmDragAndDrop": false,
+  "files.eol": "\n",
+  "files.exclude": {
+    "**/.git": true
+  },
+  "github.copilot.nextEditSuggestions.enabled": true,
+  "prettier.arrowParens": "always",
+  "prettier.printWidth": 999,
+  "prettier.semi": false,
+  "prettier.singleQuote": true,
+  "prettier.tabWidth": 2,
+  "prettier.trailingComma": "none",
+  "remote.SSH.remotePlatform": {
+    "squats": "linux"
+  },
+  "remote.WSL.useShellEnvironment": false,
+  "security.allowedUNCHosts": ["wsl.localhost", "10.69.4.20"],
   "security.workspace.trust.enabled": false,
   "security.workspace.trust.untrustedFiles": "open",
-
-  "editor.renderWhitespace": "all",
-  "editor.fontFamily": "Cousine Nerd Font",
-  "editor.fontSize": 14,
-  "editor.lineHeight": 20,
-  "editor.tabSize": 2,
-
   "terminal.integrated.defaultProfile.windows": "Debian (WSL)",
-  "terminal.integrated.fontFamily": "Cousine Nerd Font",
+  "terminal.integrated.fontFamily": "Cousine Nerd Font Mono",
   "terminal.integrated.fontSize": 14,
   "terminal.integrated.fontWeightBold": "400",
-
-  "explorer.compactFolders": false,
-
+  "terminal.integrated.lineHeight": 1.1,
+  "terminal.integrated.profiles.windows": {
+    "Command Prompt": {
+      "args": [],
+      "icon": "terminal-cmd",
+      "path": ["${env:windir}\\Sysnative\\cmd.exe", "${env:windir}\\System32\\cmd.exe"]
+    },
+    "Debian (WSL)": {
+      "args": ["-d", "arch"],
+      "path": "C:\\Windows\\System32\\wsl.exe"
+    },
+    "Git Bash": {
+      "source": "Git Bash"
+    },
+    "PowerShell": {
+      "icon": "terminal-powershell",
+      "source": "PowerShell"
+    }
+  },
+  "window.commandCenter": false,
   "workbench.colorCustomizations": {
     "editorWhitespace.foreground": "#5C6570"
   },
-
-  "explorer.confirmDragAndDrop": false,
-  "[markdown]": {
-    "editor.defaultFormatter": "DavidAnson.vscode-markdownlint"
-  },
-  "security.allowedUNCHosts": ["wsl.localhost", "10.0.1.2"],
-
-  "prettier.printWidth": 999
+  "workbench.colorTheme": "One Dark Pro Mix",
+  "workbench.iconTheme": "symbols",
+  "workbench.layoutControl.enabled": false,
+  "workbench.startupEditor": "none"
 }

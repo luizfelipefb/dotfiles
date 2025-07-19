@@ -51,15 +51,14 @@ disabled = false
 style = "black"
 symbol = " "
 
+[cmd_duration]
+format = " in $duration "
+min_time = 0
+
 [time]
 style = "yellow"
 format = '[ $time]($style) '
 disabled = false
-
-[cmd_duration]
-style = "yellow"
-format = '[ $duration]($style) '
-min_time = 0
 
 [palettes.catppuccin_mocha]
 rosewater = "#f5e0dc"
