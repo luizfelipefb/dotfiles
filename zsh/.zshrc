@@ -12,7 +12,7 @@ bindkey '^[[H' beginning-of-line               # home
 bindkey '^[[F' end-of-line                     # end
 bindkey '^[[Z' undo                            # shift + tab undo last action
 
-# search with arows up and down
+# search with arrows up and down
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
 
@@ -61,15 +61,6 @@ if [ -f /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]; then
   ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=#999'
 fi
 
-# some aliases
-alias cat='bat -P'
-alias diff='diff --color=auto'
-alias grep='grep --color=auto'
-alias ip='ip --color=auto'
-alias l='ls -lahg'
-alias ls='exa --icons --group-directories-first'
-alias dps="docker ps --format 'table {{.Names}}\t{{.Status}}\t{{.Image}}\t{{.Ports}}'"
-
 # zplug
 export ZPLUG_HOME=${HOME}/.zplug
 source ${ZPLUG_HOME}/init.zsh
@@ -102,17 +93,38 @@ export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
 fpath=(${ASDF_DATA_DIR:-$HOME/.asdf}/completions $fpath)
 autoload -Uz compinit && compinit
 
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
 # set up fzf key bindings and fuzzy completion
 source <(fzf --zsh)
 
 # startship promt
 eval "$(starship init zsh)"
 
-### work related configurations
+# direnv (silent)
+eval "$(direnv hook zsh)"
+_direnv_hook() { direnv export zsh 2>/dev/null | source /dev/stdin }
 
 # append all .kube config files
 export KUBE_EDITOR='code --wait'
 export KUBECONFIG=$(find ${HOME}/.kube -maxdepth 1 -type f | sort | sed ':a;N;s/\n/:/;ba')
+
+# OpenClaw Completion
+source "/home/luizfelipefb/.openclaw/completions/openclaw.zsh"
+
+# bun completions
+[ -s "/home/luizfelipefb/.bun/_bun" ] && source "/home/luizfelipefb/.bun/_bun"
+
+# some aliases
+alias cat='bat -P'
+alias diff='diff --color=auto'
+alias grep='grep --color=auto'
+alias ip='ip --color=auto'
+alias l='ls -lahg'
+alias ls='exa --icons --group-directories-first'
+alias dps="docker ps --format 'table {{.Names}}\t{{.Status}}\t{{.Image}}\t{{.Ports}}'"
 
 # npm-groovy-lint format
 alias ngf='npm-groovy-lint -r "Indentation{\"spacesPerIndentLevel\":4,\"severity\":\"error\"},UnnecessarySemicolon,UnnecessaryGString" --fix'
@@ -122,3 +134,7 @@ alias kjar="kubectl config use-context 'arn:aws:eks:us-east-1:030669393364:clust
 alias kdev="kubectl config use-context 'arn:aws:eks:us-east-1:030669393364:cluster/develop'"
 alias kpre="kubectl config use-context 'arn:aws:eks:us-east-1:030669393364:cluster/preprod'"
 alias kprd="kubectl config use-context 'arn:aws:eks:us-east-1:030669393364:cluster/production'"
+
+# claude
+alias claude='claude -c'
+alias claude-mem='bun "/home/luizfelipefb/.claude/plugins/cache/thedotmack/claude-mem/10.5.5/scripts/worker-service.cjs"'
