@@ -112,7 +112,7 @@ export KUBE_EDITOR='code --wait'
 export KUBECONFIG=$(find ${HOME}/.kube -maxdepth 1 -type f | sort | sed ':a;N;s/\n/:/;ba')
 
 # OpenClaw Completion
-source "/home/luizfelipefb/.openclaw/completions/openclaw.zsh"
+[ -s "/home/luizfelipefb/.openclaw/completions/openclaw.zsh" ] && source "/home/luizfelipefb/.openclaw/completions/openclaw.zsh"
 
 # bun completions
 [ -s "/home/luizfelipefb/.bun/_bun" ] && source "/home/luizfelipefb/.bun/_bun"
