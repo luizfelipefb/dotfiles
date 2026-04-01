@@ -1,30 +1,43 @@
 # .dotfiles
 
-Set OS env variables for the applications config locations and run the following script
+Personal dotfiles managed with [GNU Stow](https://www.gnu.org/software/stow/).
 
-```zsh
-# .alacritty
-ln -s $HOME/.dotfiles/alacritty/.alacritty.toml $HOME/.alacritty.toml
+## Requirements
 
-# git config
-git config --global pull.ff only
-git config --global core.excludesfile $HOME/.dotfiles/git/.gitignore
-git config --global core.editor "nano"
+```bash
+# Arch
+sudo pacman -Sy stow
 
-# k9s
-. $HOME/.dotfiles/k9s/get-catppuccin-theme.sh
-ln -s $HOME/.dotfiles/k9s/aliases.yaml $HOME/.config/k9s/aliases.yaml
-ln -s $HOME/.dotfiles/k9s/config.yaml $HOME/.config/k9s/config.yaml
+# macOS
+brew install stow
+```
 
-# starship
-ln -s $HOME/.dotfiles/starship/starship.toml $HOME/.config/starship.toml
+## Install
 
-# vim
-ln -s $HOME/.dotfiles/vim/.vimrc $HOME/.vimrc
+Clone the repo into your home directory and run stow from inside it:
 
-# vscode
-ln -s $HOME/.dotfiles/vscode/settings.json $HOME/.config/Code/User/settings.json
+```bash
+git clone <repo-url> ~/.dotfiles
+cd ~/.dotfiles
+stow .
+```
 
-# .zshrc
-ln -s $HOME/.dotfiles/zsh/.zshrc $HOME/.zshrc
+Stow will create symlinks for every file/directory, mirroring the repo structure into `$HOME`.
+
+## Uninstall
+
+Remove all symlinks created by stow:
+
+```bash
+cd ~/.dotfiles
+stow -D .
+```
+
+## Dry run
+
+Preview what stow would do without making any changes:
+
+```bash
+cd ~/.dotfiles
+stow -n -v .
 ```

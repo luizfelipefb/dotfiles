@@ -1,6 +1,6 @@
 {
   "[dockerfile]": {
-    "editor.defaultFormatter": "ms-azuretools.vscode-docker"
+    "editor.defaultFormatter": "ms-azuretools.vscode-containers"
   },
   "[html]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
@@ -15,7 +15,7 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[markdown]": {
-    "editor.defaultFormatter": "DavidAnson.vscode-markdownlint"
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[shellscript]": {
     "editor.defaultFormatter": "foxundermoon.shell-format"
@@ -29,17 +29,17 @@
   "[yaml]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
+  "[toml]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
   "editor.fontFamily": "Cousine Nerd Font Mono",
-  "editor.fontSize": 14,
+  "editor.fontSize": 12,
   "editor.lineHeight": 1.5,
   "editor.renderWhitespace": "all",
   "editor.tabSize": 2,
   "explorer.compactFolders": false,
   "explorer.confirmDragAndDrop": false,
   "files.eol": "\n",
-  "files.exclude": {
-    "**/.git": true
-  },
   "github.copilot.nextEditSuggestions.enabled": true,
   "prettier.arrowParens": "always",
   "prettier.printWidth": 999,
@@ -51,38 +51,30 @@
     "squats": "linux"
   },
   "remote.WSL.useShellEnvironment": false,
-  "security.allowedUNCHosts": ["wsl.localhost", "10.69.4.20"],
   "security.workspace.trust.enabled": false,
   "security.workspace.trust.untrustedFiles": "open",
-  "terminal.integrated.defaultProfile.windows": "Debian (WSL)",
+  "terminal.integrated.defaultProfile.windows": "Arch (WSL)",
   "terminal.integrated.fontFamily": "Cousine Nerd Font Mono",
-  "terminal.integrated.fontSize": 14,
-  "terminal.integrated.fontWeightBold": "400",
-  "terminal.integrated.lineHeight": 1.1,
   "terminal.integrated.profiles.windows": {
-    "Command Prompt": {
-      "args": [],
-      "icon": "terminal-cmd",
-      "path": ["${env:windir}\\Sysnative\\cmd.exe", "${env:windir}\\System32\\cmd.exe"]
-    },
-    "Debian (WSL)": {
+    "Arch (WSL)": {
       "args": ["-d", "arch"],
       "path": "C:\\Windows\\System32\\wsl.exe"
     },
-    "Git Bash": {
-      "source": "Git Bash"
-    },
-    "PowerShell": {
-      "icon": "terminal-powershell",
-      "source": "PowerShell"
-    }
   },
-  "window.commandCenter": false,
   "workbench.colorCustomizations": {
-    "editorWhitespace.foreground": "#5C6570"
+    "editorWhitespace.foreground": "#666",
   },
-  "workbench.colorTheme": "One Dark Pro Mix",
-  "workbench.iconTheme": "symbols",
+  "workbench.colorTheme": "Catppuccin Mocha",
+  "workbench.iconTheme": "material-icon-theme",
+  "workbench.startupEditor": "none",
+  "workbench.secondarySideBar.defaultVisibility": "hidden",
+  "claudeCode.preferredLocation": "panel",
+  "workbench.browser.showInTitleBar": false,
   "workbench.layoutControl.enabled": false,
-  "workbench.startupEditor": "none"
+  "window.commandCenter": false,
+  "window.title": "${dirty}${rootName}${separator}${activeEditorLong}",
+  "docker.extension.enableComposeLanguageServer": false,
+  "go.toolsManagement.autoUpdate": true,
+  "workbench.activityBar.location": "bottom",
+  "window.menuBarVisibility": "compact",
 }

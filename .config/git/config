@@ -1,0 +1,9 @@
+[user]
+        email = luizfelipefb@gmail.com
+        name = Luiz Felipe Fontes Botelho
+[core]
+        editor = code
+[pull]
+        ff = only
+[includeIf "gitdir:~/workspace/cf/"]
+        path = ~/workspace/cf/.gitconfig

@@ -11,7 +11,7 @@ normal.family = "Cousine Nerd Font"
 size = 10
 
 [shell]
-program = 'debian'
+program = 'arch'
 
 # Default colors
 [colors.primary]
