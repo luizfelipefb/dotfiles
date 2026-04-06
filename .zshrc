@@ -122,8 +122,9 @@ alias cat='bat -P'
 alias diff='diff --color=auto'
 alias grep='grep --color=auto'
 alias ip='ip --color=auto'
-alias l='ls -lahg'
-alias ls='exa --icons --group-directories-first'
+alias ls='exa'
+alias l='exa --icons --group-directories-first -lagh'
+alias lt='exa --icons --group-directories-first --tree --level=2 -lagh'
 alias dps="docker ps --format 'table {{.Names}}\t{{.Status}}\t{{.Image}}\t{{.Ports}}'"
 
 # npm-groovy-lint format
