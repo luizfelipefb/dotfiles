@@ -17,8 +17,8 @@ brew install stow
 Clone the repo into your home directory and run stow from inside it:
 
 ```bash
-git clone <repo-url> ~/.dotfiles
-cd ~/.dotfiles
+git clone <repo-url> ~/dotfiles
+cd ~/dotfiles
 stow .
 ```
 
@@ -29,7 +29,7 @@ Stow will create symlinks for every file/directory, mirroring the repo structure
 Remove all symlinks created by stow:
 
 ```bash
-cd ~/.dotfiles
+cd ~/dotfiles
 stow -D .
 ```
 
@@ -38,6 +38,6 @@ stow -D .
 Preview what stow would do without making any changes:
 
 ```bash
-cd ~/.dotfiles
+cd ~/dotfiles
 stow -n -v .
 ```
