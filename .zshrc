@@ -86,7 +86,8 @@ fi
 zplug load
 
 # local bins
-export PATH="$PATH:/home/luizfelipefb/.local/bin"
+export PATH="$PATH:$HOME/.local/bin"
+export PATH="$PATH:/usr/local/sbin"
 
 # asdf
 export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
@@ -96,6 +97,9 @@ autoload -Uz compinit && compinit
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+
+# k9s
+export K9S_CONFIG_DIR="$HOME/.config/k9s"
 
 # set up fzf key bindings and fuzzy completion
 source <(fzf --zsh)
@@ -109,7 +113,13 @@ _direnv_hook() { direnv export zsh 2>/dev/null | source /dev/stdin }
 
 # append all .kube config files
 export KUBE_EDITOR='code --wait'
-export KUBECONFIG=$(find ${HOME}/.kube -maxdepth 1 -type f | sort | sed ':a;N;s/\n/:/;ba')
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  # macOS specific command
+  export KUBECONFIG=$(find ${HOME}/.kube -maxdepth 1 -type f | sort | paste -sd ":" -)
+elif [[ "$OSTYPE" == "linux-gnu"* ]]; then
+  # Linux specific command
+  export KUBECONFIG=$(find ${HOME}/.kube -maxdepth 1 -type f | sort | sed ':a;N;s/\n/:/;ba')
+fi
 
 # OpenClaw Completion
 [ -s "/home/luizfelipefb/.openclaw/completions/openclaw.zsh" ] && source "/home/luizfelipefb/.openclaw/completions/openclaw.zsh"
@@ -122,9 +132,9 @@ alias cat='bat -P'
 alias diff='diff --color=auto'
 alias grep='grep --color=auto'
 alias ip='ip --color=auto'
-alias ls='exa'
-alias l='exa --icons --group-directories-first -lagh'
-alias lt='exa --icons --group-directories-first --tree --level=2 -lagh'
+alias ls='eza'
+alias l='eza --icons --group-directories-first -lagh'
+alias lt='eza --icons --group-directories-first --tree --level=2 -lagh'
 alias dps="docker ps --format 'table {{.Names}}\t{{.Status}}\t{{.Image}}\t{{.Ports}}'"
 
 # npm-groovy-lint format

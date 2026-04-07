@@ -5,12 +5,15 @@ local wezterm = require("wezterm")
 local config = wezterm.config_builder()
 
 -- domain
-config.default_domain = "WSL:Arch"
+local is_linux = wezterm.target_triple:find("linux") ~= nil
+if is_linux then
+	config.default_domain = "WSL:Arch"
+end
 
 -- visual
 config.color_scheme = "catppuccin-mocha"
 config.font = wezterm.font("Cousine Nerd Font Mono")
-config.font_size = 10.0
+config.font_size = 12.0
 
 -- window
 -- config.window_decorations = 'RESIZE'
@@ -34,18 +37,25 @@ config.keys = {
 	{ key = "DownArrow", mods = "ALT", action = wezterm.action.ActivatePaneDirection("Down") },
 }
 
+-- 1600x1000 pixels is roughly 200 cols and 52 rows (depending on your font)
+config.initial_cols = 200
+config.initial_rows = 50
+
 -- center the window on startup
 wezterm.on("gui-startup", function()
-	local screen = wezterm.gui.screens().active
-	local width, height = 1600, 1000
-	local window = wezterm.mux.spawn_window({
-		position = {
-			x = (screen.width - width) / 2,
-			y = (screen.height - height) / 2,
-			origin = "ActiveScreen",
-		},
-	})
-	window:gui_window():set_inner_size(width, height)
+    local screen = wezterm.gui.screens().active
+    local width_px, height_px = 1600, 1000
+    
+    local x = (screen.width - width_px) / 2
+    local y = (screen.height - height_px) / 2
+
+    wezterm.mux.spawn_window({
+        position = {
+            x = math.floor(x),
+            y = math.floor(y),
+            origin = { Screen = screen },
+        },
+    })
 end)
 
 -- and finally, return the configuration to wezterm
