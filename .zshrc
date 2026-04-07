@@ -137,6 +137,13 @@ alias l='eza --icons --group-directories-first -lagh'
 alias lt='eza --icons --group-directories-first --tree --level=2 -lagh'
 alias dps="docker ps --format 'table {{.Names}}\t{{.Status}}\t{{.Image}}\t{{.Ports}}'"
 
+# dirs
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias .....="cd ../../../.."
+alias ......="cd ../../../../.."
+
 # npm-groovy-lint format
 alias ngf='npm-groovy-lint -r "Indentation{\"spacesPerIndentLevel\":4,\"severity\":\"error\"},UnnecessarySemicolon,UnnecessaryGString" --fix'
 
