@@ -1,4 +1,8 @@
 lazy-lock.json
-.config/k9s/Support
+
+.config/k9s/benchmarks
 .config/k9s/clusters
+.config/k9s/screen-dumps
+.config/k9s/Support
+
 .config/tmux/plugins
