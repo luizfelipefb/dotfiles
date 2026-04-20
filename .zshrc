@@ -3,6 +3,7 @@ bindkey -e                                     # emacs key bindings
 bindkey ' ' magic-space                        # do history expansion on space
 bindkey '^U' backward-kill-line                # ctrl + U
 bindkey '^[[3;5~' kill-word                    # ctrl + Supr
+bindkey '^H' backward-kill-word                # ctrl + backspace
 bindkey '^[[3~' delete-char                    # delete
 bindkey '^[[1;5C' forward-word                 # ctrl + ->
 bindkey '^[[1;5D' backward-word                # ctrl + <-
@@ -26,19 +27,16 @@ zstyle ':completion:*' format 'Completing %d'
 zstyle ':completion:*' group-name ''
 zstyle ':completion:*' list-colors ''
 zstyle ':completion:*' list-prompt %SAt %p: Hit TAB for more, or the character to insert%s
-zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|=*' 'l:|=* r:|=*'
 zstyle ':completion:*' rehash true
 zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p%s
 zstyle ':completion:*' use-compctl false
 zstyle ':completion:*' verbose true
 zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 
-# zhs style
-zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|=*' 'l:|=* r:|=*'
-
 # History configurations
 HISTFILE=$HOME/.zsh_history
-HISTSIZE=10000
+HISTSIZE=50000
 SAVEHIST=$HISTSIZE
 setopt BANG_HIST                 # Treat the '!' character specially during expansion.
 setopt EXTENDED_HISTORY          # Write the history file in the ":start:elapsed;command" format.
@@ -54,14 +52,8 @@ setopt HIST_REDUCE_BLANKS        # Remove superfluous blanks before recording en
 setopt HIST_VERIFY               # Don't execute immediately upon history expansion.
 setopt HIST_BEEP                 # Beep when accessing nonexistent history.
 
-# enable auto-suggestions based on the history
-if [ -f /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]; then
-  . /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-  # change suggestion color
-  ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=#999'
-fi
-
 # zplug
+export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=#999'
 export ZPLUG_HOME=${HOME}/.zplug
 source ${ZPLUG_HOME}/init.zsh
 
@@ -92,7 +84,6 @@ export PATH="$PATH:/usr/local/sbin"
 # asdf
 export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
 fpath=(${ASDF_DATA_DIR:-$HOME/.asdf}/completions $fpath)
-autoload -Uz compinit && compinit
 
 # bun
 export BUN_INSTALL="$HOME/.bun"
@@ -104,12 +95,11 @@ export K9S_CONFIG_DIR="$HOME/.config/k9s"
 # set up fzf key bindings and fuzzy completion
 source <(fzf --zsh)
 
-# startship promt
+# startship
 eval "$(starship init zsh)"
 
-# direnv (silent)
+# direnv
 eval "$(direnv hook zsh)"
-_direnv_hook() { direnv export zsh 2>/dev/null | source /dev/stdin }
 
 # append all .kube config files
 export KUBE_EDITOR='code --wait'
