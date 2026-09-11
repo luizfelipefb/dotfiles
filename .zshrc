@@ -125,7 +125,7 @@ alias ip='ip --color=auto'
 alias ls='eza'
 alias l='eza --icons --group-directories-first -lagh'
 alias lt='eza --icons --group-directories-first --tree --level=2 -lagh'
-alias dps="docker ps --format 'table {{.Names}}\t{{.Status}}\t{{.Image}}\t{{.Ports}}'"
+alias dps='docker ps --format "table {{.Names}}\t{{.Status}}\t{{.Image}}\t{{.Ports}}" | { head -n1; tail -n +2 | sort; }'
 
 # dirs
 alias ..="cd .."
