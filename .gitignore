@@ -6,3 +6,5 @@ lazy-lock.json
 .config/k9s/Support
 
 .config/tmux/plugins
+
+.config/Code/agent-host
